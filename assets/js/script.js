@@ -1,4 +1,9 @@
-$(function (){
+function displayTime() {
+    var timeTop = $("#current-moment")
+    timeTop.text(moment().format("MMM DD, YYYY [at] hh:mm:ss"))
+}
+
+$(function () {
     var skillNames = [
         'Bootstrap',
         'C',
@@ -20,10 +25,10 @@ $(function (){
         'Ruby',
     ];
 
-   
-    var timeTop = $("#current-moment")
-    timeTop.text(moment().format("MMM DD, YYYY [at] hh:mm:ss"))
-    $(document).on("click", ".custom-btn", function(event){
+
+
+
+    $(document).on("click", ".custom-btn", function (event) {
         event.preventDefault()
         var projName = $("#project-name-input").val()
         var projType = $("#project-type-input").val()
@@ -35,16 +40,16 @@ $(function (){
         $("#due-date").val("")
         printProject(projName, projType, hourlyWage, dueDate)
     })
-    function daysTill(projDue){
+    function daysTill(projDue) {
         console.log(moment(projDue))
         console.log(moment(projDue).dayOfYear())
         console.log(moment(projDue).dayOfYear() - moment().dayOfYear())
         return (moment(projDue).dayOfYear() - moment().dayOfYear())
     }
-    function projRev(projDue, wage){
+    function projRev(projDue, wage) {
         return (daysTill(projDue) * 8 * wage)
     }
-    function printProject(pname, ptype, hwage, date){
+    function printProject(pname, ptype, hwage, date) {
         var tableRow = $("<tr>")
         var nameTd = $("<td>").text(pname)
         var typeTd = $("<td>").text(ptype)
@@ -57,11 +62,13 @@ $(function (){
         tableRow.append(nameTd, typeTd, wageTd, dateTd, daysTillTd, revTd, removeBtn)
         $("#project-table").append(tableRow)
     }
-    $(document).on("click", "#delete-project", function(event){
+    $(document).on("click", "#delete-project", function (event) {
         var btnClicked = $(event.target)
         btnClicked.parent("tr").remove()
     })
     $('#project-type-input').autocomplete({
-      source: skillNames,
+        source: skillNames,
     });
 })
+
+setInterval(displayTime, 1000);
