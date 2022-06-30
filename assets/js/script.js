@@ -1,4 +1,24 @@
 $(function (){
+    var skillNames = [
+        'Bootstrap',
+        'C',
+        'C++',
+        'CSS',
+        'Express.js',
+        'Git',
+        'HTML',
+        'Java',
+        'JavaScript',
+        'jQuery',
+        'JSON',
+        'MySQL',
+        'Node.js',
+        'NoSQL',
+        'PHP',
+        'Python',
+        'React',
+        'Ruby',
+    ];
     $(document).on("click", ".custom-btn", function(event){
         event.preventDefault()
         var projName = $("#project-name-input").val()
@@ -12,7 +32,10 @@ $(function (){
         printProject(projName, projType, hourlyWage, dueDate)
     })
     function daysTill(projDue){
-        return (moment(projDue).dayOfYear() - moment().dayOfYear)
+        console.log(moment(projDue))
+        console.log(moment(projDue).dayOfYear())
+        console.log(moment(projDue).dayOfYear() - moment().dayOfYear())
+        return (moment(projDue).dayOfYear() - moment().dayOfYear())
     }
     function projRev(projDue, wage){
         return (daysTill(projDue) * 8 * wage)
@@ -25,7 +48,16 @@ $(function (){
         var dateTd = $("<td>").text(date)
         var daysTillTd = $("<td>").text(daysTill(date))
         var revTd = $("<td>").text(projRev(date, hwage))
-        tableRow.append(nameTd, typeTd, wageTd, dateTd, daysTillTd, revTd)
+        var removeBtn = $("<td>").text("X")
+        removeBtn.attr("id", "delete-project")
+        tableRow.append(nameTd, typeTd, wageTd, dateTd, daysTillTd, revTd, removeBtn)
         $("#project-table").append(tableRow)
     }
+    $(document).on("click", "#delete-project", function(event){
+        var btnClicked = $(event.target)
+        btnClicked.parent("tr").remove()
+    })
+    $('#project-type-input').autocomplete({
+      source: skillNames,
+    });
 })
