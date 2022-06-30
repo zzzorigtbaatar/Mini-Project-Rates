@@ -1,0 +1,26 @@
+:root {
+      --blue: #1156d4;
+      --lightblue: #68b7eb;
+      --teal: #71a8a7;
+      --lightteal: #d5f5f5;
+      --light: #fffaf7;
+    }
+
+
+.custom-jumbotron {
+    background-color: var(--lightblue);
+    color: var(--light);
+    align-items: center;
+  }
+  .container {
+    margin: 20px;
+  }
+
+  .custom-btn {
+    background-color: var(--blue);
+    color: var(--light);
+  }
+  .project-info {
+    display: flex;
+    orientation: row;
+  }
