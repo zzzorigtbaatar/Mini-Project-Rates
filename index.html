@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Project Revenue</title>
 </head>
+
 <body>
-    
+    <section class="jumbotron jumbotron-fluid custom-jumbotron">
+        <div class="container">
+            <h1>
+                Project Revenue Calculator
+            </h1>
+            <p class="lead">
+                Current Date and Time
+            </p>
+        </div>
+    </section>
+
+    <div class="col-12 col-md-6">
+        <form id="project-form">
+          <div class="form-group">
+            <input type="text" id="project-name-input" placeholder="Project Name:" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input type="text" id="project-type-input" placeholder="Project Type:" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input type="text" id="hourly-wage" placeholder="Hourly Wage:" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input type="text" id="due-date" placeholder="Due Date:" class="form-control" />
+          </div>
+          <button class="btn custom-btn">Submit</button>
+        </form>
+      </div>
 </body>
+
+
+
 </html>
