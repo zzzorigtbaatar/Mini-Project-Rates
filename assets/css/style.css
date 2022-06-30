@@ -24,3 +24,7 @@
     display: flex;
     orientation: row;
   }
+  .table {
+    background-color: var(--blue);
+    color: var(--light);
+  }

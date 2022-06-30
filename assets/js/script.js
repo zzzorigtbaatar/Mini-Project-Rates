@@ -19,6 +19,10 @@ $(function (){
         'React',
         'Ruby',
     ];
+
+   
+    var timeTop = $("#current-moment")
+    timeTop.text(moment().format("MMM DD, YYYY [at] hh:mm:ss"))
     $(document).on("click", ".custom-btn", function(event){
         event.preventDefault()
         var projName = $("#project-name-input").val()
